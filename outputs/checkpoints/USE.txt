@@ -1,0 +1,3 @@
+This is where all the trained ".pt" files will come in after each epoch.
+
+All tokens will be saved in tokenizer.json file here.
