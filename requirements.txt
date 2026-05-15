@@ -1,0 +1,5 @@
+torch>=2.0.0
+datasets        # To download TinyStories easily
+tokenizers      # To turn words into numbers
+pyyaml          # To manage our model settings
+tqdm            # To give us those nice progress bars
