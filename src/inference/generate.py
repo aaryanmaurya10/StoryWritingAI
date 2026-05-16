@@ -22,7 +22,7 @@ class StoryGenerator:
             d_model=512, 
             n_heads=8,
             n_layers=6,
-            max_len=512
+            max_len=256
         ).to(self.device)
         
         state_dict = torch.load(checkpoint_path, map_location=self.device)
@@ -66,15 +66,15 @@ class StoryGenerator:
         return self.tokenizer.decode(idx[0].tolist())
 
 if __name__ == "__main__":
-    checkpoint = "outputs/checkpoints/master_gpt_best.pt"
+    checkpoint = "outputs/checkpoints/pt_best.pt"
     
     gen = StoryGenerator(checkpoint)
     
-    my_prompt = "In a kingdom of steam and gears, a brave knight fell in love with a princess. He knelt down and said,"
+    my_prompt = "A hard working man suddenly fell sick"
     
     story = gen.generate(my_prompt, max_new_tokens=250, temperature=0.85)
     
     print("\n" + "="*40)
-    print("Knight fell in love with Princess")
+    print("GENERATED TEXT")
     print("="*40)
     print(story)

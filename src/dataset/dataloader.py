@@ -51,6 +51,13 @@ class StoryDataset(Dataset):
 
         return x, y
 
-def get_dataloader(file_path, tokenizer, batch_size=32, max_length=256, shuffle=True):
+def get_dataloader(file_path, tokenizer, batch_size=32, max_length=256, shuffle=True, pin_memory=False):
     dataset = StoryDataset(file_path, tokenizer, max_length)
-    return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, num_workers=0)
+    # return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, num_workers=0)
+    return DataLoader(
+        dataset, 
+        batch_size=batch_size, 
+        shuffle=shuffle, 
+        num_workers=0, 
+        pin_memory=pin_memory
+    )
